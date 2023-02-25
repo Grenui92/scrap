@@ -8,7 +8,6 @@ from db_scr.json_files import load_quotes_from_file, load_authors_from_file
 
 async def main():
     proces = CrawlerProcess()
-
     proces.crawl(QuotesSpider)
     proces.crawl(AuthorsSpider)
 

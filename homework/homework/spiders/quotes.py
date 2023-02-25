@@ -6,7 +6,7 @@ class QuotesSpider(scrapy.Spider):
     allowed_domains = ["quotes.toscrape.com"]
     start_urls = ["http://quotes.toscrape.com/"]
 
-    def parse(self, response):
+    async def parse(self, response):
         for quote in response.xpath("/html//div[@class='quote']"):
             yield {
                 "tags": quote.xpath("div[@class='tags']/a/text()").extract(),
