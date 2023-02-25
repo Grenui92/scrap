@@ -3,7 +3,7 @@ import scrapy
 
 class AuthorsSpider(scrapy.Spider):
     name = "authors"
-    custom_settings = {"FEED_FORMAT": "json", "FEED_URI": "authors.json"}
+    custom_settings = {"FEED_FORMAT": "json", "FEED_URI": "json_files/authors.json"}
     allowed_domains = ["quotes.toscrape.com"]
     start_urls = ["http://quotes.toscrape.com/"]
 
@@ -23,7 +23,7 @@ class AuthorsSpider(scrapy.Spider):
         born_location = response.xpath("/html//div[@class='author-details']/p/span[@class='author-born-location']/text()").get()
         yield {
             "fullname": fullname,
-            "born_date":born_date,
+            "born_date": born_date,
             "born_location": born_location,
             "description": f"Born {born_location}: {born_date}"
 
