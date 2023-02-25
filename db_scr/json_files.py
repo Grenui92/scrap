@@ -30,7 +30,7 @@ def load_quotes_from_file():
                            author=author.id,
                            quote=record['quote'])
             quote.save()
-        except:
+        except AttributeError:
             print(f'I cant find author "{record["author"]}"')
 
 
